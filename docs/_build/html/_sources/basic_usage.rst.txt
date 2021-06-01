@@ -1,65 +1,67 @@
 Usage Principles
 ----------------
 
-Import the Scanpy API as::
+
+Import the epiScanpy API as::
 
     import episcanpy.api as epi
+    import anndata as ad
 
 Workflow
 ^^^^^^^^
 
-The typical workflow consists of subsequent calls of data analysis tools
-in ``sc.tl``, e.g.::
+The first step is to build the count matrix. Because  single-cell epigenomic data types have different characteristics (count data in ATAC-seq versus methylation level in DNA methylation, for example), epiScanpy implements -omic specific approaches to build the count matrix.
+All the functions to build the count matrices (for ATAC, methylation or other) will  use ``epi.ct`` (ct = count).
 
-    sc.tl.tsne(adata, **tool_params)  # embed the data using tSNE
+The first step is to load an annotation and then build the count matrix that will be either methylation or ATAC-seq specific. For example using ``epi.ct``, e.g.::
 
-where ``adata`` is an :class:`~anndata.AnnData` object. Each of these calls adds annotation to an expression matrix *X*, which stores *n_obs* observations (cells) of *n_vars* variables (genes). For each tool, there typically is an associated plotting function in ``sc.pl``::
+    epi.ct.load_features(file_features, **tool_params)  # to load annotation files 
+    epi.ct.build_count_mtx(cell_file_names, omic="ATAC") # to build the ATAC-seq count matrix
+    
 
-    sc.pl.tsne(adata, **plotting_params)
+If you have an already build matrix, you can load it with any additional metadata (such as cell annotations or batches). 
 
-If you pass ``show=False``, a :class:`matplotlib.axes.Axes` instance is returned and you have all of matplotlib's detailed configuration possibilities.
+The count matrix, either the one that has been constructed or uploaded, with any additional informations (such as cell annotations or batches) are stored as an :class:`~anndata.AnnData` object. All functions for quality control and preprocessing are called using ``epi.pp`` (pp = preprocessing).
 
-To facilitate writing memory-efficient pipelines, by default, Scanpy tools operate *inplace* on ``adata`` and return ``None`` - this also allows to easily transition to `out-of-memory pipelines <http://falexwolf.de/blog/171223_AnnData_indexing_views_HDF5-backing/>`__. If you want to return a copy of the :class:`~anndata.AnnData` object and leave the passed ``adata`` unchanged, pass ``copy=True``.
+To visualise how common features are and what is the coverage distribution of the count matrix features, use: ::
+    
+    epi.pp.commoness_features(adata, **processing_params)
+    epi.pp.coverage_cells(adata, **processing_params)
+
+To remove low quality cells you can use the following functions: ::
+
+    epi.pp.filter_cells(adata, min_features=10)
+    epi.pp.filter_features(adata, min_cells=10)
 
 
-AnnData
-^^^^^^^
+To reduce the feature space to the most variable features: ::
+    epi.pl.cal_var(adata)
+    epi.pp.select_var_feature(adata, max_score=0.2, nb_features=50000)
+    
+    
+The next step, is the calculation of tSNE, UMAP, PCA etc. For that, we take advantage of the embedding into Scanpy and we use mostly Scanpy functions, which are called using ``sc.tl`` (tl = tool) [Wolf18]_. For that, see Scanpy usage principles: <https://scanpy.readthedocs.io/en/latest/basic_usage.html>`__. For example, to obtain cell-cell distance calculations or low dimensional representation we make use of the ``adata`` object, and store *n_obs* observations (cells) of *n_vars* variables (expression, methylation, chromatin features). For each tool, there typically is an associated plotting function in ``sc.tl`` and ``sc.pl`` (pl = plot) ::
 
-Scanpy is based on :mod:`anndata`, which provides the :class:`~anndata.AnnData` class.
+        epi.pp.pca(adata, n_comps=100, svd_solver='arpack')
+        epi.pp.neighbors(adata,  n_neighbors=15)
 
+        epi.tl.tsne(adata, **tool_params)
+        epi.pl.tsne(adata, **plotting_params)
+        
+There are also epiScanpy specific tools and plotting functions that can be accessed using ``epi.tl`` and ``epi.pl`` ::
+
+        epi.tl.silhouette(adata, **tool_params)
+        epi.pl.silhouette(adata, **plotting_params)
+        epi.pl.prct_overlap(adata, **plotting_params)
+        
+    
+Data structure
+^^^^^^^^^^^^^^
+
+Similarly to Scanpy, the methylation and ATAC-seq matrices are stored as Anndata objects. For more information on the datastructure see here`here <https://anndata.readthedocs.io/en/latest/>`__
+    
 .. raw:: html
 
-    <img src="http://falexwolf.de/img/scanpy/anndata.svg" style="width: 300px">
-
-At the most basic level, an :class:`~anndata.AnnData` object ``adata`` stores
-a data matrix (``adata.X``), dataframe-like annotation of observations
-(``adata.obs``) and variables (``adata.var``) and unstructured dict-like
-annotation (``adata.uns``). Values can be retrieved and appended via
-``adata.obs['key1']`` and ``adata.var['key2']``. Names of observations and
-variables can be accessed via ``adata.obs_names`` and ``adata.var_names``,
-respectively. :class:`~anndata.AnnData` objects can be sliced like
-dataframes, for example, ``adata_subset = adata[:, list_of_gene_names]``.
-For more, see this `blog post <http://falexwolf.de/blog/171223_AnnData_indexing_views_HDF5-backing/>`__.
-
-To read a data file to an :class:`~anndata.AnnData` object, call::
-
-    adata = sc.read(filename)
-
-to initialize an :class:`~anndata.AnnData` object. Possibly add further annotation using, e.g., ``pd.read_csv``::
-
-    import pandas as pd
-    anno = pd.read_csv(filename_sample_annotation)
-    adata.obs['cell_groups'] = anno['cell_groups']  # categorical annotation of type pandas.Categorical
-    adata.obs['time'] = anno['time']                # numerical annotation of type float
-    # alternatively, you could also set the whole dataframe
-    # adata.obs = anno
-
-To write, use::
-
-    adata.write(filename)
-    adata.write_csvs(filename)
-    adata.write_loom(filename)
+   <img src="http://falexwolf.de/img/scanpy/anndata.svg" style="width: 400px">
+  
 
 
-.. _Seaborn: http://seaborn.pydata.org/
-.. _matplotlib: http://matplotlib.org/

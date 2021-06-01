@@ -4,33 +4,47 @@ Tutorials
 
 ------------
 
-single cell ATAC
-----------------
+Single cell ATAC-seq
+--------------------
 
-Currently, for getting started, we recommend `Scanpy's reimplementation <https://nbviewer.jupyter.org/github/theislab/scanpy_usage/blob/master/170505_seurat/seurat.ipynb>`__ of Seurat's [Satija15]_ clustering tutorial 2700 PBMCs from 10x Genomics, containing preprocessing, clustering and the identification of cell types via known marker genes.
+To get started, we recommend epiScanpy's analysis pipeline for scATAC-seq data from Buenrostro et al. [Buenrostro18]_. , the dataset consist of ~3000cells of human PBMCs. This tutorial focuses on preprocessing, clustering, identification of cell types via known marker genes and trajectory inference. The tutorial can be found `here <https://nbviewer.jupyter.org/github/colomemaria/epiScanpy/blob/master/docs/tutorials/Buenrostro_PBMC_data_processing.html>`__. 
 
-You might compare this to `clustering 68K PBMCs <https://nbviewer.jupyter.org/github/theislab/scanpy_usage/blob/master/170503_zheng17/zheng17.ipynb>`__ as it would be done in Cell Ranger [Zheng17]_.
 
-.. raw:: html
 
-   <img src="http://falexwolf.de/img/scanpy_usage/170505_seurat/filter_genes_dispersion.png" style="width: 100px"><img src="http://falexwolf.de/img/scanpy_usage/170505_seurat/louvain.png" style="width: 100px"><img src="http://falexwolf.de/img/scanpy_usage/170505_seurat/NKG7.png" style="width: 100px"><img src="http://falexwolf.de/img/scanpy_usage/170505_seurat/violin.png" style="width: 100px"><img src="http://falexwolf.de/img/scanpy_usage/170505_seurat/cell_types.png" style="width: 200px">
+.. image:: pictures/Buenrostro_umap.png
+   :width: 200px
 
+
+If you want to see how to build count matrices from ATAC-seq bam files for different set of annotations (like enhancers).
+The tutorial can be found `here <https://nbviewer.jupyter.org/github/colomemaria/epiScanpy/blob/master/docs/tutorials/ATAC_bld_ct_mtx_tutorial.html>`__. 
+
+Soon available, there will be a tutorial providing a function to very quickly build custom count matrices using standard 10x single cell ATAC output. 
+
+.. image:: pictures/umap.png
+   :width: 350px
+.. image:: pictures/umap_ATACseq_Astrocyte_marker.png
+   :width: 250px
+.. image:: pictures/heatmap.png
+   :width: 600px
+
+An additional tutorial on processing and clustering count matrices from the Cusanovich mouse scATAC-seq atlas [Cusanovich18]_.. `Here <https://nbviewer.jupyter.org/github/colomemaria/epiScanpy/blob/master/docs/tutorials/Cusanovich2018_BoneMarrow_data_processing_diffmap.html>`__.
 
 ------------
 
-Single cell methylation
------------------------
+Single cell DNA methylation
+---------------------------
 
-For trajectory inference on complex datasets, we offer several examples `here <https://github.com/theislab/paga>`__. Get started `here <https://nbviewer.jupyter.org/github/theislab/paga/blob/master/blood/paul15/paul15.ipynb>`__ for the following result on hematopoiesis.
+Here you can find a tutorial for the preprocessing, clustering and identification of cell types for single-cell DNA methylation data using the publicly available data from Luo et al. [Luo17]_. 
 
-.. raw:: html
+The first tutorial shows how to build the count matrices for the different feature spaces (windows, promoters) in different cytosine contexts. Here is the  `tutorial  <https://nbviewer.jupyter.org/github/colomemaria/epiScanpy/blob/master/docs/tutorials/bld_count_matrix_methylation_tutorial.html>`__.
 
-   <img src="http://www.falexwolf.de/img/paga_paul15.png" style="width: 450px">
+To see how process single cell DNA methylation data suing epiScanpy. Here is a `tutorial <https://nbviewer.jupyter.org/github/colomemaria/epiScanpy/blob/master/docs/tutorials/processing_enhancers_mCG.html>`__ processing The data Luo et al. [Luo17]_ mouse frontal cortex dna methylation data. 
 
-You can extend this to multi-resolution analyses of whole animals, such as `here <https://nbviewer.jupyter.org/github/theislab/paga/blob/master/planaria/planaria.ipynb>`__.
-
-.. raw:: html
-
-   <img src="http://www.falexwolf.de/img/paga_planaria.png" style="width: 350px">
-
-The PAGA method behind this is described `here <https://rawgit.com/falexwolf/paga_paper/master/paga.pdf>`__ and can be cited using this `doi <https://doi.org/10.1101/208819>`__. As a reference for simple pseudotime analyses, we provide the diffusion pseudotime analyses of [Haghverdi16]_ for two hematopoiesis datasets: `here <https://nbviewer.jupyter.org/github/theislab/scanpy_usage/blob/master/170502_paul15/paul15.ipynb>`__ for [Paul15]_ and `here <https://nbviewer.jupyter.org/github/theislab/scanpy_usage/blob/master/170501_moignard15/moignard15.ipynb>`__ for [Moignard15]_.
+.. image:: pictures/umap_markers_hodology_ecker.png
+   :width: 600px
+.. image:: pictures/umapexcitatory_neurons_promoters.png
+   :width: 300px 
+.. image:: pictures/umapSatb2_CLUSTER_NORM.png
+   :width: 250px  
+.. image:: pictures/umapenhancer_CG_Luoetal.png
+   :width: 300px
