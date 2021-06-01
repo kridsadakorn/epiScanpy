@@ -1,0 +1,278 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Usage Principles &mdash; epiScanpy 0.3.1+47.gb297b30 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/typehints.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="System Requirements" href="System_Requirements.html" />
+    <link rel="prev" title="Tutorials" href="examples.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> epiScanpy
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.3.1+47.gb297b30
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Tutorials</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Usage Principles</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#workflow">Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-structure">Data structure</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="System_Requirements.html">System Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">epiScanpy</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Usage Principles</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            
+              <a href="https://github.com/colomemaria/epiScanpy/blob/master/docs/basic_usage.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="usage-principles">
+<h1>Usage Principles<a class="headerlink" href="#usage-principles" title="Permalink to this headline">¶</a></h1>
+<p>Import the epiScanpy API as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">episcanpy.api</span> <span class="k">as</span> <span class="nn">epi</span>
+<span class="kn">import</span> <span class="nn">anndata</span> <span class="k">as</span> <span class="nn">ad</span>
+</pre></div>
+</div>
+<div class="section" id="workflow">
+<h2>Workflow<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h2>
+<p>The first step is to build the count matrix. Because  single-cell epigenomic data types have different characteristics (count data in ATAC-seq versus methylation level in DNA methylation, for example), epiScanpy implements -omic specific approaches to build the count matrix.
+All the functions to build the count matrices (for ATAC, methylation or other) will  use <code class="docutils literal notranslate"><span class="pre">epi.ct</span></code> (ct = count).</p>
+<p>The first step is to load an annotation and then build the count matrix that will be either methylation or ATAC-seq specific. For example using <code class="docutils literal notranslate"><span class="pre">epi.ct</span></code>, e.g.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">epi</span><span class="o">.</span><span class="n">ct</span><span class="o">.</span><span class="n">load_features</span><span class="p">(</span><span class="n">file_features</span><span class="p">,</span> <span class="o">**</span><span class="n">tool_params</span><span class="p">)</span>  <span class="c1"># to load annotation files</span>
+<span class="n">epi</span><span class="o">.</span><span class="n">ct</span><span class="o">.</span><span class="n">build_count_mtx</span><span class="p">(</span><span class="n">cell_file_names</span><span class="p">,</span> <span class="n">omic</span><span class="o">=</span><span class="s2">&quot;ATAC&quot;</span><span class="p">)</span> <span class="c1"># to build the ATAC-seq count matrix</span>
+</pre></div>
+</div>
+<p>If you have an already build matrix, you can load it with any additional metadata (such as cell annotations or batches).</p>
+<p>The count matrix, either the one that has been constructed or uploaded, with any additional informations (such as cell annotations or batches) are stored as an <a class="reference external" href="https://anndata.readthedocs.io/en/latest/anndata.AnnData.html#anndata.AnnData" title="(in anndata v0.7.7.dev2+ge7a3a3e)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AnnData</span></code></a> object. All functions for quality control and preprocessing are called using <code class="docutils literal notranslate"><span class="pre">epi.pp</span></code> (pp = preprocessing).</p>
+<p>To visualise how common features are and what is the coverage distribution of the count matrix features, use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">epi</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">commoness_features</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="o">**</span><span class="n">processing_params</span><span class="p">)</span>
+<span class="n">epi</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">coverage_cells</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="o">**</span><span class="n">processing_params</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>To remove low quality cells you can use the following functions:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">epi</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">filter_cells</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">min_features</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">epi</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">filter_features</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">min_cells</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>To reduce the feature space to the most variable features: ::</dt><dd><p>epi.pl.cal_var(adata)
+epi.pp.select_var_feature(adata, max_score=0.2, nb_features=50000)</p>
+</dd>
+</dl>
+<p>The next step, is the calculation of tSNE, UMAP, PCA etc. For that, we take advantage of the embedding into Scanpy and we use mostly Scanpy functions, which are called using <code class="docutils literal notranslate"><span class="pre">sc.tl</span></code> (tl = tool) <a class="reference internal" href="references.html#wolf18" id="id1"><span>[Wolf18]</span></a>. For that, see Scanpy usage principles: &lt;<a class="reference external" href="https://scanpy.readthedocs.io/en/latest/basic_usage.html">https://scanpy.readthedocs.io/en/latest/basic_usage.html</a>&gt;`__. For example, to obtain cell-cell distance calculations or low dimensional representation we make use of the <code class="docutils literal notranslate"><span class="pre">adata</span></code> object, and store <em>n_obs</em> observations (cells) of <em>n_vars</em> variables (expression, methylation, chromatin features). For each tool, there typically is an associated plotting function in <code class="docutils literal notranslate"><span class="pre">sc.tl</span></code> and <code class="docutils literal notranslate"><span class="pre">sc.pl</span></code> (pl = plot)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">epi</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">pca</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">n_comps</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">svd_solver</span><span class="o">=</span><span class="s1">&#39;arpack&#39;</span><span class="p">)</span>
+<span class="n">epi</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">neighbors</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span>  <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+
+<span class="n">epi</span><span class="o">.</span><span class="n">tl</span><span class="o">.</span><span class="n">tsne</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="o">**</span><span class="n">tool_params</span><span class="p">)</span>
+<span class="n">epi</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">tsne</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="o">**</span><span class="n">plotting_params</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>There are also epiScanpy specific tools and plotting functions that can be accessed using <code class="docutils literal notranslate"><span class="pre">epi.tl</span></code> and <code class="docutils literal notranslate"><span class="pre">epi.pl</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">epi</span><span class="o">.</span><span class="n">tl</span><span class="o">.</span><span class="n">silhouette</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="o">**</span><span class="n">tool_params</span><span class="p">)</span>
+<span class="n">epi</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">silhouette</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="o">**</span><span class="n">plotting_params</span><span class="p">)</span>
+<span class="n">epi</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">prct_overlap</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="o">**</span><span class="n">plotting_params</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="data-structure">
+<h2>Data structure<a class="headerlink" href="#data-structure" title="Permalink to this headline">¶</a></h2>
+<p>Similarly to Scanpy, the methylation and ATAC-seq matrices are stored as Anndata objects. For more information on the datastructure see here`here &lt;<a class="reference external" href="https://anndata.readthedocs.io/en/latest/">https://anndata.readthedocs.io/en/latest/</a>&gt;`__</p>
+<img src="http://falexwolf.de/img/scanpy/anndata.svg" style="width: 400px"></div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="System_Requirements.html" class="btn btn-neutral float-right" title="System Requirements" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="examples.html" class="btn btn-neutral float-left" title="Tutorials" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Anna Danese, Maria Richter, Kridsadakorn Chaichoompu..
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

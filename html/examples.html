@@ -1,0 +1,252 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Tutorials &mdash; epiScanpy 0.3.1+47.gb297b30 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/typehints.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Usage Principles" href="basic_usage.html" />
+    <link rel="prev" title="EpiScanpy – Epigenomics single cell analysis in python" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> epiScanpy
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.3.1+47.gb297b30
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#single-cell-atac-seq">Single cell ATAC-seq</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#single-cell-dna-methylation">Single cell DNA methylation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="basic_usage.html">Usage Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="System_Requirements.html">System Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">epiScanpy</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Tutorials</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            
+              <a href="https://github.com/colomemaria/epiScanpy/blob/master/docs/examples.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="tutorials">
+<h1>Tutorials<a class="headerlink" href="#tutorials" title="Permalink to this headline">¶</a></h1>
+<hr class="docutils" />
+<div class="section" id="single-cell-atac-seq">
+<h2>Single cell ATAC-seq<a class="headerlink" href="#single-cell-atac-seq" title="Permalink to this headline">¶</a></h2>
+<p>To get started, we recommend epiScanpy’s analysis pipeline for scATAC-seq data from Buenrostro et al. <a class="reference internal" href="references.html#buenrostro18" id="id1"><span>[Buenrostro18]</span></a>. , the dataset consist of ~3000cells of human PBMCs. This tutorial focuses on preprocessing, clustering, identification of cell types via known marker genes and trajectory inference. The tutorial can be found <a class="reference external" href="https://nbviewer.jupyter.org/github/colomemaria/epiScanpy/blob/master/docs/tutorials/Buenrostro_PBMC_data_processing.html">here</a>.</p>
+<a class="reference internal image-reference" href="_images/Buenrostro_umap.png"><img alt="_images/Buenrostro_umap.png" src="_images/Buenrostro_umap.png" style="width: 200px;" /></a>
+<p>If you want to see how to build count matrices from ATAC-seq bam files for different set of annotations (like enhancers).
+The tutorial can be found <a class="reference external" href="https://nbviewer.jupyter.org/github/colomemaria/epiScanpy/blob/master/docs/tutorials/ATAC_bld_ct_mtx_tutorial.html">here</a>.</p>
+<p>Soon available, there will be a tutorial providing a function to very quickly build custom count matrices using standard 10x single cell ATAC output.</p>
+<a class="reference internal image-reference" href="_images/umap.png"><img alt="_images/umap.png" src="_images/umap.png" style="width: 350px;" /></a>
+<a class="reference internal image-reference" href="_images/umap_ATACseq_Astrocyte_marker.png"><img alt="_images/umap_ATACseq_Astrocyte_marker.png" src="_images/umap_ATACseq_Astrocyte_marker.png" style="width: 250px;" /></a>
+<a class="reference internal image-reference" href="_images/heatmap.png"><img alt="_images/heatmap.png" src="_images/heatmap.png" style="width: 600px;" /></a>
+<p>An additional tutorial on processing and clustering count matrices from the Cusanovich mouse scATAC-seq atlas <a class="reference internal" href="references.html#cusanovich18" id="id2"><span>[Cusanovich18]</span></a>.. <a class="reference external" href="https://nbviewer.jupyter.org/github/colomemaria/epiScanpy/blob/master/docs/tutorials/Cusanovich2018_BoneMarrow_data_processing_diffmap.html">Here</a>.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="single-cell-dna-methylation">
+<h2>Single cell DNA methylation<a class="headerlink" href="#single-cell-dna-methylation" title="Permalink to this headline">¶</a></h2>
+<p>Here you can find a tutorial for the preprocessing, clustering and identification of cell types for single-cell DNA methylation data using the publicly available data from Luo et al. <a class="reference internal" href="references.html#luo17" id="id3"><span>[Luo17]</span></a>.</p>
+<p>The first tutorial shows how to build the count matrices for the different feature spaces (windows, promoters) in different cytosine contexts. Here is the  <a class="reference external" href="https://nbviewer.jupyter.org/github/colomemaria/epiScanpy/blob/master/docs/tutorials/bld_count_matrix_methylation_tutorial.html">tutorial</a>.</p>
+<p>To see how process single cell DNA methylation data suing epiScanpy. Here is a <a class="reference external" href="https://nbviewer.jupyter.org/github/colomemaria/epiScanpy/blob/master/docs/tutorials/processing_enhancers_mCG.html">tutorial</a> processing The data Luo et al. <a class="reference internal" href="references.html#luo17" id="id4"><span>[Luo17]</span></a> mouse frontal cortex dna methylation data.</p>
+<a class="reference internal image-reference" href="_images/umap_markers_hodology_ecker.png"><img alt="_images/umap_markers_hodology_ecker.png" src="_images/umap_markers_hodology_ecker.png" style="width: 600px;" /></a>
+<a class="reference internal image-reference" href="_images/umapexcitatory_neurons_promoters.png"><img alt="_images/umapexcitatory_neurons_promoters.png" src="_images/umapexcitatory_neurons_promoters.png" style="width: 300px;" /></a>
+<a class="reference internal image-reference" href="_images/umapSatb2_CLUSTER_NORM.png"><img alt="_images/umapSatb2_CLUSTER_NORM.png" src="_images/umapSatb2_CLUSTER_NORM.png" style="width: 250px;" /></a>
+<a class="reference internal image-reference" href="_images/umapenhancer_CG_Luoetal.png"><img alt="_images/umapenhancer_CG_Luoetal.png" src="_images/umapenhancer_CG_Luoetal.png" style="width: 300px;" /></a>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="basic_usage.html" class="btn btn-neutral float-right" title="Usage Principles" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="EpiScanpy – Epigenomics single cell analysis in python" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Anna Danese, Maria Richter, Kridsadakorn Chaichoompu..
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

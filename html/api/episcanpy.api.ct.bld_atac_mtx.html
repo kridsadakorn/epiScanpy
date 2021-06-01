@@ -1,0 +1,274 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>episcanpy.api.ct.bld_atac_mtx &mdash; epiScanpy 0.3.1+47.gb297b30 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/typehints.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> epiScanpy
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.3.1+47.gb297b30
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_usage.html">Usage Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../System_Requirements.html">System Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">epiScanpy</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>episcanpy.api.ct.bld_atac_mtx</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            
+              <!-- User defined GitHub URL -->
+              <a href="https://github.com/colomemaria/epiScanpy/tree/master/episcanpy/count_matrix/_atac_mtx.py#L14-L153" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="episcanpy-api-ct-bld-atac-mtx">
+<h1>episcanpy.api.ct.bld_atac_mtx<a class="headerlink" href="#episcanpy-api-ct-bld-atac-mtx" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="episcanpy.api.ct.bld_atac_mtx">
+<span class="sig-prename descclassname"><span class="pre">episcanpy.api.ct.</span></span><span class="sig-name descname"><span class="pre">bld_atac_mtx</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">list_bam_files</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loaded_feat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_file_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">writing_option</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'a'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'rb'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_sq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chromosomes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['1',</span> <span class="pre">'10',</span> <span class="pre">'11',</span> <span class="pre">'12',</span> <span class="pre">'13',</span> <span class="pre">'14',</span> <span class="pre">'15',</span> <span class="pre">'16',</span> <span class="pre">'17',</span> <span class="pre">'18',</span> <span class="pre">'19',</span> <span class="pre">'20',</span> <span class="pre">'21',</span> <span class="pre">'22',</span> <span class="pre">'2',</span> <span class="pre">'3',</span> <span class="pre">'4',</span> <span class="pre">'5',</span> <span class="pre">'6',</span> <span class="pre">'7',</span> <span class="pre">'8',</span> <span class="pre">'9',</span> <span class="pre">'X',</span> <span class="pre">'Y']</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#episcanpy.api.ct.bld_atac_mtx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a count matrix one set of features at a time. It is specific of ATAC-seq data.
+It curently do not write down a sparse matrix. It writes down a regular count matrix
+as a text file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>list_bam_files</strong> : <em>input must be a list of bam file names. One for each cell to</em></dt><dd><p>build the count matrix for</p>
+</dd>
+<dt><strong>loaded_feat</strong> : <em>the features for which you want to build the count matrix</em></dt><dd><p></p>
+</dd>
+<dt><strong>output_file_name</strong> : <em>name of the output file. The count matrix that will be written</em></dt><dd><p>down in the current directory. If this parameter is not specified,
+the output count amtrix will be named ‘std_output_ct_mtx.txt’</p>
+</dd>
+<dt><strong>path</strong> : <em>path where to find the input file. The output file will be written down</em></dt><dd><p></p>
+</dd>
+<dt><strong>your current directory</strong> : <em>in</em></dt><dd><p></p>
+</dd>
+<dt><strong>is not affected by this parameter.</strong> : <em>it</em></dt><dd><p></p>
+</dd>
+<dt><strong>writing_option</strong> : <em>standard writing options for the output file. 'a'</em><em> or </em><em>'w'</em></dt><dd><p>‘a’ to append to an already existing matrix. ‘w’ to overwrite any
+previously exisiting matrix.
+default: ‘a’</p>
+</dd>
+<dt><strong>header</strong> : <em>if you want to write down the feature name specify this argument.</em></dt><dd><p>Input must be a list.</p>
+</dd>
+<dt><strong>mode</strong> : <em>bamnostic argument 'r'</em><em> or </em><em>'w' for read and write 'b' and 's' for bam</em><em> or </em><em>sam</em></dt><dd><p>if only ‘r’ is specified, bamnostic will try to determine if the input is
+either a bam or sam file.</p>
+</dd>
+<dt><strong>check_sq</strong> : <em>bamnostic argument. when reading</em><em>, </em><em>check if SQ entries are present in header</em></dt><dd><p></p>
+</dd>
+<dt><strong>chromosomes</strong> : <em>chromosomes of the species you are considering. default value</em></dt><dd><p><p>is the human genome (not including mitochondrial genome).
+HUMAN = [‘1’, ‘10’, ‘11’, ‘12’, ‘13’, ‘14’, ‘15’, ‘16’, ‘17’, ‘18’, ‘19’, ‘20’, ‘21’, ‘22’,</p>
+<blockquote>
+<div><p>’2’, ‘3’, ‘4’, ‘5’, ‘6’, ‘7’, ‘8’, ‘9’,’X’, ‘Y’]</p>
+</div></blockquote>
+<dl class="simple">
+<dt>MOUSE = ‘1’, ‘10’, ‘11’, ‘12’, ‘13’, ‘14’, ‘15’, ‘16’, ‘17’, ‘18’, ‘19’,</dt><dd><p>’2’, ‘3’, ‘4’, ‘5’, ‘6’, ‘7’, ‘8’, ‘9’,’X’, ‘Y’]</p>
+</dd>
+</dl>
+</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>It does not return any object. The function write down the desired count
+matrix in a txt file</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Anna Danese, Maria Richter, Kridsadakorn Chaichoompu..
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
