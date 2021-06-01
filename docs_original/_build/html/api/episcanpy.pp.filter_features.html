@@ -1,0 +1,261 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>episcanpy.pp.filter_features &mdash; epiScanpy 0.3.1+47.gb297b30 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/typehints.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="episcanpy.pp.normalize_total" href="episcanpy.pp.normalize_total.html" />
+    <link rel="prev" title="episcanpy.pp.filter_cells" href="episcanpy.pp.filter_cells.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> epiScanpy
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.3.1+47.gb297b30
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_usage.html">Usage Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../System_Requirements.html">System Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#count-matrices-ct">Count Matrices: CT</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#preprocessing-pp">Preprocessing: PP</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="episcanpy.pp.coverage_cells.html">episcanpy.pp.coverage_cells</a></li>
+<li class="toctree-l3"><a class="reference internal" href="episcanpy.pp.correlation_pc.html">episcanpy.pp.correlation_pc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="episcanpy.pp.coverage_features.html">episcanpy.pp.coverage_features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="episcanpy.pp.density_features.html">episcanpy.pp.density_features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="episcanpy.pp.select_var_feature.html">episcanpy.pp.select_var_feature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="episcanpy.pp.cal_var.html">episcanpy.pp.cal_var</a></li>
+<li class="toctree-l3"><a class="reference internal" href="episcanpy.pp.variability_features.html">episcanpy.pp.variability_features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="episcanpy.pp.binarize.html">episcanpy.pp.binarize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="episcanpy.pp.lazy.html">episcanpy.pp.lazy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="episcanpy.pp.load_metadata.html">episcanpy.pp.load_metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="episcanpy.pp.read_ATAC_10x.html">episcanpy.pp.read_ATAC_10x</a></li>
+<li class="toctree-l3"><a class="reference internal" href="episcanpy.pp.filter_cells.html">episcanpy.pp.filter_cells</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">episcanpy.pp.filter_features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="episcanpy.pp.normalize_total.html">episcanpy.pp.normalize_total</a></li>
+<li class="toctree-l3"><a class="reference internal" href="episcanpy.pp.pca.html">episcanpy.pp.pca</a></li>
+<li class="toctree-l3"><a class="reference internal" href="episcanpy.pp.normalize_per_cell.html">episcanpy.pp.normalize_per_cell</a></li>
+<li class="toctree-l3"><a class="reference internal" href="episcanpy.pp.regress_out.html">episcanpy.pp.regress_out</a></li>
+<li class="toctree-l3"><a class="reference internal" href="episcanpy.pp.subsample.html">episcanpy.pp.subsample</a></li>
+<li class="toctree-l3"><a class="reference internal" href="episcanpy.pp.downsample_counts.html">episcanpy.pp.downsample_counts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="episcanpy.pp.neighbors.html">episcanpy.pp.neighbors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="episcanpy.pp.sparse.html">episcanpy.pp.sparse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="episcanpy.pp.log1p.html">episcanpy.pp.log1p</a></li>
+<li class="toctree-l3"><a class="reference internal" href="episcanpy.pp.sparse.html">episcanpy.pp.sparse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#methylation-matrices">Methylation matrices</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#tools-tl">Tools: TL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#plotting-pl">Plotting: PL</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">epiScanpy</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">API</a> &raquo;</li>
+        
+      <li>episcanpy.pp.filter_features</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            
+              <!-- User defined GitHub URL -->
+              <a href="https://github.com/colomemaria/epiScanpy/tree/master/episcanpy/preprocessing/_scanpy_fct.py#L95-L143" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="episcanpy-pp-filter-features">
+<h1>episcanpy.pp.filter_features<a class="headerlink" href="#episcanpy-pp-filter-features" title="Permalink to this headline">¶</a></h1>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="episcanpy.pp.normalize_total.html" class="btn btn-neutral float-right" title="episcanpy.pp.normalize_total" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="episcanpy.pp.filter_cells.html" class="btn btn-neutral float-left" title="episcanpy.pp.filter_cells" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Anna Danese, Maria Richter, Kridsadakorn Chaichoompu..
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

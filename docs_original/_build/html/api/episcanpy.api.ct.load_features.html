@@ -1,0 +1,258 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>episcanpy.api.ct.load_features &mdash; epiScanpy 0.3.1+47.gb297b30 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/typehints.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> epiScanpy
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.3.1+47.gb297b30
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_usage.html">Usage Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../System_Requirements.html">System Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">epiScanpy</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>episcanpy.api.ct.load_features</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            
+              <!-- User defined GitHub URL -->
+              <a href="https://github.com/colomemaria/epiScanpy/tree/master/episcanpy/count_matrix/_features.py#L190-L246" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="episcanpy-api-ct-load-features">
+<h1>episcanpy.api.ct.load_features<a class="headerlink" href="#episcanpy-api-ct-load-features" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="episcanpy.api.ct.load_features">
+<span class="sig-prename descclassname"><span class="pre">episcanpy.api.ct.</span></span><span class="sig-name descname"><span class="pre">load_features</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_features</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chromosomes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['1',</span> <span class="pre">'2',</span> <span class="pre">'3',</span> <span class="pre">'4',</span> <span class="pre">'5',</span> <span class="pre">'6',</span> <span class="pre">'7',</span> <span class="pre">'8',</span> <span class="pre">'9',</span> <span class="pre">'10',</span> <span class="pre">'11',</span> <span class="pre">'12',</span> <span class="pre">'13',</span> <span class="pre">'14',</span> <span class="pre">'15',</span> <span class="pre">'16',</span> <span class="pre">'17',</span> <span class="pre">'18',</span> <span class="pre">'19',</span> <span class="pre">'20',</span> <span class="pre">'21',</span> <span class="pre">'22',</span> <span class="pre">'X',</span> <span class="pre">'Y']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_file_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#episcanpy.api.ct.load_features" title="Permalink to this definition">¶</a></dt>
+<dd><p>The function load features is here to transform a bed file into a usable
+set of units to measure methylation levels.
+It has to be a bed-like file. You also need to specify the chromosomes you
+use as a list of characteres like [‘1’, ‘7’, ‘8’, ‘9’, ‘X’, ‘Y’, ‘M’].
+The chromosome list you give as input can be not ordered.
+If you don’t specify the chromosomes, the default is the human genome
+(including X, Y and mitochondrial DNA).
+THE BED (and gtf) FILE need to be sorted. (upcoming an option to sort the
+file).</p>
+<p>The output is a dictionary where the keys are chromosomes and the value is
+a list containing [start, end, name] for every feature extracted.</p>
+<p>This function will load the entire annoation file. If you want to use only parts of gtf/gff files
+please look the functions load_features_gff and load_features_gtf.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>file_features</strong></dt><dd><p>the names of the bed file you want to load.</p>
+</dd>
+<dt><strong>chromosomes</strong></dt><dd><p>chromosomes corresponding to the bed file.
+If not specified, it’s human by default</p>
+</dd>
+<dt><strong>path</strong></dt><dd><p>if you want to specify the path where your bed file is.</p>
+</dd>
+<dt><strong>input_file_format</strong></dt><dd><p>if None, the input format is deduced from the extension name (admitted bed, gtf, gff)
+if str specified, it overlook the rxtension name and load the feature file as the
+specified input file format.</p>
+</dd>
+<dt><strong>sort</strong></dt><dd><p>if True, the bed file is sorted based on starting coordinates.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Anna Danese, Maria Richter, Kridsadakorn Chaichoompu..
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
